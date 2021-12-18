@@ -1,6 +1,6 @@
 # WebGL Path Tracing
 
-![](http://evanw.github.com/webgl-path-tracing/image.png)
+![image.png](https://Zi7ar21.github.io/webgl-path-tracing/image.png)
 
 [Try it live](http://madebyevan.com/webgl-path-tracing/) (requires a browser with WebGL)
 
