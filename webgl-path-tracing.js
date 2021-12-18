@@ -235,7 +235,7 @@ function makeCalculateColor(objects) {
 ' vec3 calculateColor(vec3 origin, vec3 ray, vec3 light) {' +
 '   vec3 colorMask = vec3(1.0);' +
 '   vec3 accumulatedColor = vec3(0.0);' +
-  
+
     // main raytracing loop
 '   for(int bounce = 0; bounce < ' + bounces + '; bounce++) {' +
       // compute the intersection with everything
@@ -455,7 +455,7 @@ Sphere.prototype.getIntersectCode = function() {
 
 Sphere.prototype.getShadowTestCode = function() {
   return '' +
-  this.getIntersectCode() + 
+  this.getIntersectCode() +
 ' if(' + this.intersectStr + ' < 1.0) return 0.0;';
 };
 
@@ -535,7 +535,7 @@ Cube.prototype.getIntersectCode = function() {
 
 Cube.prototype.getShadowTestCode = function() {
   return '' +
-  this.getIntersectCode() + 
+  this.getIntersectCode() +
 ' if(' + this.intersectStr + '.x > 0.0 && ' + this.intersectStr + '.x < 1.0 && ' + this.intersectStr + '.x < ' + this.intersectStr + '.y) return 0.0;';
 };
 
@@ -1153,10 +1153,10 @@ function addRecursiveSpheresBranch(objects, center, radius, depth, dir) {
   if(depth--) {
     if(dir != XNEG) addRecursiveSpheresBranch(objects, center.subtract(Vector.create([radius * 1.5, 0, 0])), radius / 2, depth, XPOS);
     if(dir != XPOS) addRecursiveSpheresBranch(objects, center.add(Vector.create([radius * 1.5, 0, 0])),      radius / 2, depth, XNEG);
-    
+
     if(dir != YNEG) addRecursiveSpheresBranch(objects, center.subtract(Vector.create([0, radius * 1.5, 0])), radius / 2, depth, YPOS);
     if(dir != YPOS) addRecursiveSpheresBranch(objects, center.add(Vector.create([0, radius * 1.5, 0])),      radius / 2, depth, YNEG);
-    
+
     if(dir != ZNEG) addRecursiveSpheresBranch(objects, center.subtract(Vector.create([0, 0, radius * 1.5])), radius / 2, depth, ZPOS);
     if(dir != ZPOS) addRecursiveSpheresBranch(objects, center.add(Vector.create([0, 0, radius * 1.5])),      radius / 2, depth, ZNEG);
   }
